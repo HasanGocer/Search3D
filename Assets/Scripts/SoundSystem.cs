@@ -9,13 +9,12 @@ public class SoundSystem : MonoSingleton<SoundSystem>
 
     public void MainMusicPlay()
     {
-        mainSource.clip = mainMusic;
-        mainSource.Play();
+        mainSource.volume = 70;
     }
 
     public void MainMusicStop()
     {
-        mainSource.Stop();
+        mainSource.volume = 0;
     }
 
     public void EffectCall()

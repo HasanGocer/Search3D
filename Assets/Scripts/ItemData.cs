@@ -40,11 +40,9 @@ public class ItemData : MonoSingleton<ItemData>
             fieldPrice.objectCount = fieldPrice.objectCount * factor.objectCount;
         }
 
-        if (PlayerPrefs.HasKey("Contract"))
-            ContractSystem.Instance.FocusContract = GameManager.Instance.ContractPlacementRead();
-        else
-            ContractSystem.Instance.FirstStart();
 
+        ContractSystem.Instance.FirstStart();
+        ContractUISystem.Instance.UIPlacement();
     }
 
     public void SetObjectTypeCount()

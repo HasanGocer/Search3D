@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Buttons : MonoSingleton<Buttons>
 {
@@ -11,6 +12,7 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private GameObject _globalPanel;
 
     public GameObject _startPanel;
+    [SerializeField] Button _startButton;
 
     [SerializeField] private Button _settingButton;
     [SerializeField] private GameObject _settingGame;
@@ -19,8 +21,8 @@ public class Buttons : MonoSingleton<Buttons>
     [SerializeField] private Button _settingBackButton;
     [SerializeField] private Button _soundButton, _vibrationButton;
 
-    public GameObject winPanel;
-    [SerializeField] private Button _winPrizeButton, _winEmptyButton;
+    public GameObject winPanel, failPanel;
+    [SerializeField] private Button _winPrizeButton, _winEmptyButton, _failButton;
 
     public TMP_Text finishGameMoneyText;
 
@@ -72,22 +74,42 @@ public class Buttons : MonoSingleton<Buttons>
         _settingBackButton.onClick.AddListener(SettingBackButton);
         _soundButton.onClick.AddListener(SoundButton);
         _vibrationButton.onClick.AddListener(VibrationButton);
-        _winPrizeButton.onClick.AddListener(WinPrizeButton);
-        _winEmptyButton.onClick.AddListener(WinButton);
+        _winPrizeButton.onClick.AddListener(() => StartCoroutine(WinPrizeButton()));
+        _winEmptyButton.onClick.AddListener(() => StartCoroutine(WinButton()));
+        _failButton.onClick.AddListener(() => StartCoroutine(FailButton()));
+        _startButton.onClick.AddListener(StartButton);
     }
 
-    private void WinButton()
+    private void StartButton()
+    {
+        _startPanel.SetActive(false);
+        ContractUISystem.Instance.TaskPanel.SetActive(true);
+        TimerSystem.Instance.TimerPanel.SetActive(true);
+
+        ContractUISystem.Instance.UIPlacement();
+        StartCoroutine(TimerSystem.Instance.TimerStart());
+    }
+    private IEnumerator WinButton()
     {
         _winPrizeButton.enabled = false;
         BarSystem.Instance.BarStopButton(0);
         GameManager.Instance.SetLevel();
         MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
     }
-    private void WinPrizeButton()
+    private IEnumerator WinPrizeButton()
     {
         _winPrizeButton.enabled = false;
         BarSystem.Instance.BarStopButton(GameManager.Instance.addedMoney);
         GameManager.Instance.SetLevel();
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
+    }
+    private IEnumerator FailButton()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
     }
     private void SettingButton()
     {

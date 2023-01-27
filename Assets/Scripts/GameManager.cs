@@ -7,6 +7,7 @@ public class GameManager : MonoSingleton<GameManager>
     //managerde bulunacak
 
     public bool isStart;
+    public bool isFinish;
 
     public int addedMoney;
     public int level;
@@ -58,11 +59,6 @@ public class GameManager : MonoSingleton<GameManager>
         System.IO.File.WriteAllText(Application.persistentDataPath + "/FactorData.json", jsonData);
     }
 
-    public void ContractPlacementWrite(ContractSystem.Contract contract)
-    {
-        string jsonData = JsonUtility.ToJson(contract);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/contractData.json", jsonData);
-    }
 
     public ItemData.Field FactorPlacementRead()
     {
@@ -70,14 +66,6 @@ public class GameManager : MonoSingleton<GameManager>
         ItemData.Field factor = new ItemData.Field();
         factor = JsonUtility.FromJson<ItemData.Field>(jsonRead);
         return factor;
-    }
-
-    public ContractSystem.Contract ContractPlacementRead()
-    {
-        string jsonRead = System.IO.File.ReadAllText(Application.persistentDataPath + "/contractData.json");
-        ContractSystem.Contract contract = new ContractSystem.Contract();
-        contract = JsonUtility.FromJson<ContractSystem.Contract>(jsonRead);
-        return contract;
     }
 
     public void SetMoney()
