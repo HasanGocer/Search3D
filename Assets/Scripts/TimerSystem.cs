@@ -6,10 +6,17 @@ using UnityEngine.UI;
 public class TimerSystem : MonoSingleton<TimerSystem>
 {
     public GameObject TimerPanel;
-    public float timerCount = 30, tempTimerCount;
-    [SerializeField] Image bar;
+    [SerializeFieldS] Image bar;
 
-    public IEnumerator TimerStart()
+    public IEnumerator ObjectBar()
+    {
+        while (true)
+        {
+            if ()
+        }
+    }
+
+    /*public IEnumerator TimerStart()
     {
         for (int i = 0; i < timerCount * 2 && !GameManager.Instance.isFinish; i++)
         {
@@ -23,5 +30,5 @@ public class TimerSystem : MonoSingleton<TimerSystem>
             GameManager.Instance.isFinish = true;
             GameManager.Instance.isStart = false;
         }
-    }
+    }*/
 }

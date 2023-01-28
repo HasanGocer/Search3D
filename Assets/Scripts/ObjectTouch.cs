@@ -16,6 +16,13 @@ public class ObjectTouch : MonoBehaviour
             ContractSystem.Contract contract = ContractSystem.Instance.FocusContract;
             for (int i = 0; i < contract.objectTypeCount.Count; i++)
                 if (contract.objectTypeCount[i] == _IDCount && GameManager.Instance.isStart) OnTheList();
+            if (!isTrigger)
+            {
+                //fail
+                Buttons.Instance.failPanel.SetActive(true);
+                GameManager.Instance.isFinish = true;
+                GameManager.Instance.isStart = false;
+            }
         }
         if (other.CompareTag("Finish"))
         {

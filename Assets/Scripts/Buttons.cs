@@ -89,7 +89,7 @@ public class Buttons : MonoSingleton<Buttons>
 
         StartCoroutine(SpawnSystem.Instance.SpawnStart());
         ContractUISystem.Instance.UIPlacement();
-        StartCoroutine(TimerSystem.Instance.TimerStart());
+        //StartCoroutine(TimerSystem.Instance.TimerStart());
     }
     private IEnumerator WinButton()
     {

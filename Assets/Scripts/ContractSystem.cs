@@ -10,6 +10,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
     {
         public List<int> objectTypeCount = new List<int>();
         public List<int> objectCount = new List<int>();
+        public int maxItem, noewItem;
     }
 
     public Contract FocusContract = new Contract();
@@ -21,6 +22,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
     public void ObjectCountUpdate(int objectTypeCount)
     {
         FocusContract.objectCount[objectTypeCount]--;
+        FocusContract.noewItem++;
         if (FocusContract.objectCount[objectTypeCount] <= 0) FocusContract.objectTypeCount[objectTypeCount] = -2;
 
         QueryContract();
