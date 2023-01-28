@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class WrongSystem : MonoSingleton<WrongSystem>
 {
-    public GameObject FailPanel;
+    public GameObject FailPanel, freePos;
     public List<Image> WrongImage = new List<Image>();
     [SerializeField] GameObject imageTempPos;
     public int nowWrongCount = 0, maxWrongCount = 2;
@@ -20,16 +20,17 @@ public class WrongSystem : MonoSingleton<WrongSystem>
         {
             GameManager.Instance.isStart = false;
             Buttons.Instance.failPanel.SetActive(true);
-            GameManager.Instance.isStart = false;
+            GameManager.Instance.isFinish = true;
             //CabinetSystem.Instance.AllObjectClose();
         }
         tempImage.transform.localScale = new Vector3(7, 7, 7);
         tempImage.gameObject.SetActive(true);
         tempImage.transform.position = imageTempPos.transform.position;
         tempImage = CallWrong(tempImage, wrongMark, redMat);
+        obj.transform.position = freePos.transform.position;
         tempImage.transform.DOScale(new Vector3(1, 1, 1), 1.5f);
         tempImage.transform.DOMove(WrongImage[nowWrongCount].gameObject.transform.position, 1.5f).SetEase(Ease.InOutSine);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.7f);
         nowWrongCount++;
         tempImage.gameObject.SetActive(false);
         WrongImage[nowWrongCount - 1] = CallWrong(WrongImage[nowWrongCount - 1], wrongMark, redMat);
