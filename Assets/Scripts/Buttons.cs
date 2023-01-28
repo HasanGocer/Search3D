@@ -82,7 +82,6 @@ public class Buttons : MonoSingleton<Buttons>
 
     private void StartButton()
     {
-        StartCoroutine(FinishSystem.Instance.FinishMove());
         _startPanel.SetActive(false);
         ContractUISystem.Instance.TaskPanel.SetActive(true);
         TimerSystem.Instance.TimerPanel.SetActive(true);
