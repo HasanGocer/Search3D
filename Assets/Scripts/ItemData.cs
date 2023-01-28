@@ -42,7 +42,6 @@ public class ItemData : MonoSingleton<ItemData>
 
 
         ContractSystem.Instance.FirstStart();
-        ContractUISystem.Instance.UIPlacement();
     }
 
     public void SetObjectTypeCount()

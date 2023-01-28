@@ -19,7 +19,7 @@ public class TimerSystem : MonoSingleton<TimerSystem>
         }
         if (!GameManager.Instance.isFinish)
         {
-            //fail
+            Buttons.Instance.failPanel.SetActive(true);
         }
     }
 }
