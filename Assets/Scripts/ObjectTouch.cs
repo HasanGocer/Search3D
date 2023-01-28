@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ObjectTouch : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ObjectTouch : MonoBehaviour
     {
         if (other.CompareTag("Sorter"))
         {
+            transform.DOShakeScale(0.5f, 0.7f);
+
             ContractSystem.Contract contract = ContractSystem.Instance.FocusContract;
             for (int i = 0; i < contract.objectTypeCount.Count; i++)
                 if (contract.objectTypeCount[i] == _IDCount && GameManager.Instance.isStart) OnTheList();

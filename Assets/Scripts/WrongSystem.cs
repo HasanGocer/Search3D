@@ -28,9 +28,9 @@ public class WrongSystem : MonoSingleton<WrongSystem>
         tempImage.transform.position = imageTempPos.transform.position;
         tempImage = CallWrong(tempImage, wrongMark, redMat);
         obj.transform.position = freePos.transform.position;
-        tempImage.transform.DOScale(new Vector3(1, 1, 1), 1.5f);
-        tempImage.transform.DOMove(WrongImage[nowWrongCount].gameObject.transform.position, 1.5f).SetEase(Ease.InOutSine);
-        yield return new WaitForSeconds(1.7f);
+        tempImage.transform.DOScale(new Vector3(1, 1, 1), 0.5f);
+        tempImage.transform.DOMove(WrongImage[nowWrongCount].gameObject.transform.position, 0.5f).SetEase(Ease.InOutSine);
+        yield return new WaitForSeconds(0.7f);
         nowWrongCount++;
         tempImage.gameObject.SetActive(false);
         WrongImage[nowWrongCount - 1] = CallWrong(WrongImage[nowWrongCount - 1], wrongMark, redMat);

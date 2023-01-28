@@ -62,14 +62,12 @@ public class ContractSystem : MonoSingleton<ContractSystem>
             if (FocusContract.objectCount[i] > 0) isFinish = false;
 
         if (isFinish)
-            ContractFinish();
+            StartCoroutine(FinishSystem.Instance.FinishMove());
     }
-    private void ContractFinish()
+    public void ContractFinish()
     {
         ItemData.Field field = ItemData.Instance.field;
         Buttons.Instance.winPanel.SetActive(true);
-        GameManager.Instance.isStart = false;
-        GameManager.Instance.isFinish = true;
 
         LevelManager.Instance.CheckLevel();
         int money = Random.Range(10 * field.objectTypeCount, 30 * field.objectTypeCount);
