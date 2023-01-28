@@ -35,19 +35,13 @@ public class ObjectTouch : MonoBehaviour
     {
         float lerpCount = 0;
 
-        print(0);
         while (true)
         {
-            print(1);
-            lerpCount += Time.deltaTime;
-            print(2);
+            lerpCount += Time.deltaTime / 3;
             transform.position = Vector3.Lerp(transform.position, SpawnSystem.Instance.finishBoxPos.transform.position, lerpCount);
-            print(3);
             yield return new WaitForSeconds(Time.deltaTime);
-            print(4);
-            if (3 > Vector3.Distance(transform.position, SpawnSystem.Instance.finishBoxPos.transform.position))
+            if (1 > Vector3.Distance(transform.position, SpawnSystem.Instance.finishBoxPos.transform.position))
             {
-                print(5);
                 ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + tempID, gameObject);
                 break;
             }

@@ -16,11 +16,12 @@ public class ContractSystem : MonoSingleton<ContractSystem>
 
     public void FirstStart()
     {
-        FocusContract = NewContract(GameManager.Instance.level, 5, ItemData.Instance.field.objectCount, ItemData.Instance.field.objectTypeCount);
+        FocusContract = NewContract(GameManager.Instance.level, 2, ItemData.Instance.field.objectCount, ItemData.Instance.field.objectTypeCount);
     }
     public void ObjectCountUpdate(int objectTypeCount)
     {
         FocusContract.objectCount[objectTypeCount]--;
+        if (FocusContract.objectCount[objectTypeCount] <= 0) FocusContract.objectTypeCount[objectTypeCount] = -2;
 
         QueryContract();
     }
@@ -38,11 +39,11 @@ public class ContractSystem : MonoSingleton<ContractSystem>
                 isFree = false;
                 itemTypeCount = Random.Range(0, maxitemTypeCount);
 
-                for (int j = 0; j < FocusContract.objectTypeCount.Count; j++)
-                    if (FocusContract.objectTypeCount[j] == itemTypeCount) isFree = true;
+                for (int j = 0; j < contract.objectTypeCount.Count; j++)
+                    if (contract.objectTypeCount[j] == itemTypeCount) isFree = true;
             }
             while (isFree);
-            int itemCount = Random.Range(maxItemCount * 2, maxItemCount * 5);
+            int itemCount = Random.Range(maxItemCount * 1, maxItemCount * 3);
 
             contract.objectTypeCount.Add(itemTypeCount);
             contract.objectCount.Add(itemCount);
@@ -67,7 +68,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
         GameManager.Instance.isStart = false;
         GameManager.Instance.isFinish = true;
 
-
+        LevelManager.Instance.CheckLevel();
         int money = Random.Range(10 * field.objectTypeCount, 30 * field.objectTypeCount);
         StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
         Buttons.Instance.finishGameMoneyText.text = MoneySystem.Instance.NumberTextRevork(money);

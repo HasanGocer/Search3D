@@ -2705,6 +2705,7 @@ GameObject:
   - component: {fileID: 1386917216}
   - component: {fileID: 1386917215}
   - component: {fileID: 1386917214}
+  - component: {fileID: 1386917217}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2787,8 +2788,8 @@ MonoBehaviour:
     objectTypeCount: 1
     objectCount: 3
   maxFactor:
-    objectTypeCount: 100
-    objectCount: 100
+    objectTypeCount: 4
+    objectCount: 10
   max:
     objectTypeCount: 0
     objectCount: 0
@@ -2838,6 +2839,20 @@ MonoBehaviour:
   - objectPrefab: {fileID: 4485123097870294006, guid: 544515039c971194c955f2bb24e0e077,
       type: 3}
     poolSize: 100
+--- !u!114 &1386917217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386917210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbede431d2ee7c34ab6f2a0db5b65961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeCountMod: 3
+  countMod: 3
 --- !u!1 &1388812781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4210,7 +4225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938967252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.2, y: 0, z: 12.57}
+  m_LocalPosition: {x: 10.01, y: 3.63, z: 12.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
