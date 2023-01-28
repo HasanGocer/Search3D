@@ -47,6 +47,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
             while (isFree);
             int itemCount = Random.Range(maxItemCount * 1, maxItemCount * 3);
 
+            contract.maxItem += itemCount;
             contract.objectTypeCount.Add(itemTypeCount);
             contract.objectCount.Add(itemCount);
         }

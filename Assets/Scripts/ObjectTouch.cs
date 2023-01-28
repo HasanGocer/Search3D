@@ -18,7 +18,8 @@ public class ObjectTouch : MonoBehaviour
                 if (contract.objectTypeCount[i] == _IDCount && GameManager.Instance.isStart) OnTheList();
             if (!isTrigger)
             {
-                //fail
+                isTrigger = true;
+                _IDCount = -1;
                 Buttons.Instance.failPanel.SetActive(true);
                 GameManager.Instance.isFinish = true;
                 GameManager.Instance.isStart = false;
@@ -37,6 +38,7 @@ public class ObjectTouch : MonoBehaviour
         _IDCount = -1;
         isTrigger = true;
         StartCoroutine(MoveToFinishBox());
+        TimerSystem.Instance.BarUpdate(ContractSystem.Instance.FocusContract.maxItem, ContractSystem.Instance.FocusContract.noewItem, 1);
     }
     private IEnumerator MoveToFinishBox()
     {

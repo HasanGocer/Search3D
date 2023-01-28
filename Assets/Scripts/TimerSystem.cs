@@ -6,13 +6,30 @@ using UnityEngine.UI;
 public class TimerSystem : MonoSingleton<TimerSystem>
 {
     public GameObject TimerPanel;
-    [SerializeFieldS] Image bar;
+    [SerializeField] Image bar;
 
-    public IEnumerator ObjectBar()
+    public void BarUpdate(int max, int count, int down)
     {
+        float nowBar = (float)count / (float)max;
+        float afterBar = ((float)count + (float)down) / (float)max;
+        if (afterBar > 1)
+            afterBar = 1;
+        StartCoroutine(ObjectBar(nowBar, afterBar));
+    }
+
+
+    private IEnumerator ObjectBar(float start, float finish)
+    {
+        ContractSystem.Contract contract = ContractSystem.Instance.FocusContract;
+        float lerpCount = 0;
+
         while (true)
         {
-            if ()
+            yield return null;
+            lerpCount += Time.deltaTime;
+            bar.fillAmount = Mathf.Lerp(start, finish, lerpCount);
+            yield return new WaitForEndOfFrame();
+            if (bar.fillAmount == finish) break;
         }
     }
 
