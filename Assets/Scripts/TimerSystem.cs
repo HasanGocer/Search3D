@@ -20,6 +20,8 @@ public class TimerSystem : MonoSingleton<TimerSystem>
         if (!GameManager.Instance.isFinish)
         {
             Buttons.Instance.failPanel.SetActive(true);
+            GameManager.Instance.isFinish = true;
+            GameManager.Instance.isStart = false;
         }
     }
 }

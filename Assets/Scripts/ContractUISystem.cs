@@ -28,7 +28,6 @@ public class ContractUISystem : MonoSingleton<ContractUISystem>
     public void TaskDown(int typeCount)
     {
         ContractSystem.Contract contract = ContractSystem.Instance.FocusContract;
-
         int tempTypeCount = contract.objectTypeCount.IndexOf(typeCount);
         ContractSystem.Instance.ObjectCountUpdate(tempTypeCount);
         _TaskTextPos[tempTypeCount].text = contract.objectCount[tempTypeCount].ToString();

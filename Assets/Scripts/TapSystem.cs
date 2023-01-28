@@ -23,6 +23,13 @@ public class TapSystem : MonoSingleton<TapSystem>
 
     private IEnumerator ColliderOpen()
     {
+        if (TapGO.gameObject.activeInHierarchy)
+        {
+            StopAllCoroutines();
+            TapGO.SetActive(false);
+            StartCoroutine(ColliderOpen()); 
+        }
+
         TapGO.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         TapGO.SetActive(false);

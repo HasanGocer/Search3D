@@ -7,6 +7,7 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
     public int OPObjectCount;
     [SerializeField] private float _spawnTime;
     [SerializeField] private GameObject _startPos, _finishPos;
+    public GameObject finishBoxPos;
 
     public IEnumerator SpawnStart()
     {

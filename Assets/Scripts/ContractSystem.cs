@@ -20,7 +20,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
     }
     public void ObjectCountUpdate(int objectTypeCount)
     {
-        FocusContract.objectTypeCount[objectTypeCount]--;
+        FocusContract.objectCount[objectTypeCount]--;
 
         QueryContract();
     }
@@ -64,6 +64,9 @@ public class ContractSystem : MonoSingleton<ContractSystem>
     {
         ItemData.Field field = ItemData.Instance.field;
         Buttons.Instance.winPanel.SetActive(true);
+        GameManager.Instance.isStart = false;
+        GameManager.Instance.isFinish = true;
+
 
         int money = Random.Range(10 * field.objectTypeCount, 30 * field.objectTypeCount);
         StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
