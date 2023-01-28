@@ -19,10 +19,9 @@ public class ObjectTouch : MonoBehaviour
             if (!isTrigger)
             {
                 isTrigger = true;
+                tempID = _IDCount;
                 _IDCount = -1;
-                Buttons.Instance.failPanel.SetActive(true);
-                GameManager.Instance.isFinish = true;
-                GameManager.Instance.isStart = false;
+                StartCoroutine(WrongSystem.Instance.WrongCanvasMove(gameObject, tempID));
             }
         }
         if (other.CompareTag("Finish"))
