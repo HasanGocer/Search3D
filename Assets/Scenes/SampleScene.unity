@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.34509802, g: 1, b: 0.94763255, a: 1}
+  m_FogColor: {r: 0.34509802, g: 0.59097636, b: 1, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 45
@@ -1165,7 +1165,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.38
+  m_Intensity: 0.32
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2265,7 +2265,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.38
+  m_Intensity: 0.32
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5184,6 +5184,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: adfedf6f83eb89d439a3e420a3bcdc88, type: 2}
     - target: {fileID: -4096120871940991593, guid: 61a462219d1b5954db64e04e71f900a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5214,11 +5219,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 6.2
       objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: adfedf6f83eb89d439a3e420a3bcdc88, type: 2}
+    - target: {fileID: -1439730007547781893, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: adfedf6f83eb89d439a3e420a3bcdc88, type: 2}
     - target: {fileID: 919132149155446097, guid: 61a462219d1b5954db64e04e71f900a7,
         type: 3}
       propertyPath: m_Name
       value: way3
       objectReference: {fileID: 0}
+    - target: {fileID: 1129496810705857465, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: adfedf6f83eb89d439a3e420a3bcdc88, type: 2}
     - target: {fileID: 3316992658331686828, guid: 61a462219d1b5954db64e04e71f900a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5249,6 +5269,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 6.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6317578925029434746, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6625b98438285db47bc058e7ac35f3a7, type: 2}
+    - target: {fileID: 7071182760956848314, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: adfedf6f83eb89d439a3e420a3bcdc88, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: adfedf6f83eb89d439a3e420a3bcdc88, type: 2}
+    - target: {fileID: 8100320773420232829, guid: 61a462219d1b5954db64e04e71f900a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6625b98438285db47bc058e7ac35f3a7, type: 2}
     - target: {fileID: 8632055958874330854, guid: 61a462219d1b5954db64e04e71f900a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5555,7 +5595,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.38
+  m_Intensity: 0.32
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5676,7 +5716,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.38
+  m_Intensity: 0.32
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
