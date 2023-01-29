@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class FinishSystem : MonoSingleton<FinishSystem>
 {
-    [SerializeField] private GameObject box, boxPos, around;
+    [SerializeField] private GameObject box, boxPos, finishSpawnPos, around;
     [SerializeField] Animator boxRight, boxLeft;
     bool isRotation;
 
@@ -39,13 +39,11 @@ public class FinishSystem : MonoSingleton<FinishSystem>
         for (int i = 0; i < 5; i++)
         {
             GameObject obj = ObjectPool.Instance.GetPooledObject(SpawnSystem.Instance.OPObjectCount + i);
-            obj.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            obj.transform.position = box.transform.position;
-            obj.transform.position += new Vector3(0, 2, 0);
+            obj.transform.position = finishSpawnPos.transform.position;
+            obj.transform.localScale *= 0.5f;
             obj.GetComponent<Rigidbody>().useGravity = true;
             objects.Add(obj);
             box.transform.DOShakeScale(0.08f, 0.2f);
-            print(31);
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(0.5f);
