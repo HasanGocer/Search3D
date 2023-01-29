@@ -62,9 +62,12 @@ public class ContractSystem : MonoSingleton<ContractSystem>
         for (int i = 0; i < FocusContract.objectCount.Count; i++)
             if (FocusContract.objectCount[i] > 0) isFinish = false;
 
-        if (isFinish)
+        if (isFinish && WrongSystem.Instance.nowWrongCount < WrongSystem.Instance.maxWrongCount)
         {
-            yield return new WaitForSeconds(1.7f);
+            SpawnSystem.Instance.ObjectOff();
+            GameManager.Instance.isStart = false;
+            GameManager.Instance.isFinish = true;
+            yield return new WaitForSeconds(1);
             StartCoroutine(FinishSystem.Instance.FinishMove());
         }
     }

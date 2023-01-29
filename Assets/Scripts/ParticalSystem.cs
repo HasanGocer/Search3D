@@ -20,6 +20,5 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
         obj.transform.position = pos.transform.position;
         yield return new WaitForSeconds(_objectBlastParticalTime);
         ObjectPool.Instance.AddObject(_OPObjectBlastCount, obj);
-        ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + tempID, pos);
     }
 }

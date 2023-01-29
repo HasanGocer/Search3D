@@ -5,7 +5,9 @@ using UnityEngine;
 public class TapSystem : MonoSingleton<TapSystem>
 {
     [SerializeField] private GameObject TapGO;
+    [SerializeField] private GameObject redPlane, greenPlane;
     Touch touch;
+    bool isOpen;
 
     void Update()
     {
@@ -15,23 +17,27 @@ public class TapSystem : MonoSingleton<TapSystem>
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    StartCoroutine(ColliderOpen());
+                    ColliderOpen();
                     break;
             }
         }
     }
 
-    private IEnumerator ColliderOpen()
+    private void ColliderOpen()
     {
-        if (TapGO.gameObject.activeInHierarchy)
+        if (!isOpen)
         {
-            StopAllCoroutines();
-            TapGO.SetActive(false);
-            StartCoroutine(ColliderOpen()); 
+            isOpen = true;
+            TapGO.SetActive(true);
+            redPlane.SetActive(false);
+            greenPlane.SetActive(true);
         }
-
-        TapGO.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        TapGO.SetActive(false);
+        else
+        {
+            isOpen = false;
+            TapGO.SetActive(false);
+            redPlane.SetActive(true);
+            greenPlane.SetActive(false);
+        }
     }
 }

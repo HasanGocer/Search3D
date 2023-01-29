@@ -88,9 +88,10 @@ public class Buttons : MonoSingleton<Buttons>
         GameManager.Instance.isStart = true;
         WrongSystem.Instance.FailPanel.SetActive(true);
 
-        TimerSystem.Instance.StartTimer();
         StartCoroutine(SpawnSystem.Instance.SpawnStart());
+        TimerSystem.Instance.StartTimer();
         ContractUISystem.Instance.UIPlacement();
+        StartCoroutine(SeeSystem.Instance.SeeObject());
         //StartCoroutine(TimerSystem.Instance.TimerStart());
     }
     private IEnumerator WinButton()
