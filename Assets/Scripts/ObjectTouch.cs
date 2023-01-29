@@ -53,7 +53,23 @@ public class ObjectTouch : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
             if (1 > Vector3.Distance(transform.position, SpawnSystem.Instance.finishBoxPos.transform.position))
             {
-                ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + tempID, gameObject);
+                StartCoroutine(MoveToBoxInside());
+                break;
+            }
+        }
+    }
+    private IEnumerator MoveToBoxInside()
+    {
+        float lerpCount = 0;
+
+        while (true)
+        {
+            lerpCount += Time.deltaTime / 3;
+            transform.position = Vector3.Lerp(transform.position, SpawnSystem.Instance.finishBoxInsidePos.transform.position, lerpCount);
+            yield return new WaitForSeconds(Time.deltaTime);
+            if (1 > Vector3.Distance(transform.position, SpawnSystem.Instance.finishBoxInsidePos.transform.position))
+            {
+                StartCoroutine(ParticalSystem.Instance.CallObjectBlastPartical(gameObject, tempID));
                 break;
             }
         }

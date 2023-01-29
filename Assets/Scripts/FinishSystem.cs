@@ -31,8 +31,8 @@ public class FinishSystem : MonoSingleton<FinishSystem>
     {
         while (isRotation)
         {
-            box.transform.Rotate(Vector3.up * Time.deltaTime * 150);
-            yield return new WaitForEndOfFrame();
+            box.transform.DORotate(Vector3.up * Time.deltaTime * 300 + box.transform.eulerAngles, Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
 }

@@ -2184,6 +2184,7 @@ Transform:
   - {fileID: 2015031119}
   - {fileID: 1938967253}
   - {fileID: 1288843783}
+  - {fileID: 984906972}
   m_Father: {fileID: 302192657}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2580,6 +2581,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943690332}
   m_CullTransparentMesh: 1
+--- !u!1 &984906971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984906972}
+  m_Layer: 0
+  m_Name: FinishBoxInsidePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984906972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984906971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.01, y: -0.6, z: 12.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 869639927}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &986034927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,7 +2891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158945228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.966, y: 0.513, z: 15.556}
+  m_LocalPosition: {x: -0.494, y: 0.44, z: 15.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3968,6 +4000,9 @@ MonoBehaviour:
   - objectPrefab: {fileID: 1575721338728490, guid: 4171bb92c5c591848b14be1db6f3efe2,
       type: 3}
     poolSize: 100
+  - objectPrefab: {fileID: 1589019458639318, guid: fb2dbd343895b6c47888986bf91da33c,
+      type: 3}
+    poolSize: 100
   - objectPrefab: {fileID: 6063420887356237023, guid: d2fd25d5fcbdb3b4bbb35670a381d650,
       type: 3}
     poolSize: 100
@@ -3992,7 +4027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbede431d2ee7c34ab6f2a0db5b65961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeCountMod: 3
+  typeCountMod: 5
   countMod: 3
 --- !u!114 &1386917218
 MonoBehaviour:
@@ -4007,7 +4042,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _OPFinishParticalCount: 1
+  _OPObjectBlastCount: 2
   _finishParticalTime: 1
+  _objectBlastParticalTime: 1.7
 --- !u!114 &1386917219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5039,11 +5076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f330adb1aa11f1549b4df2258e0309ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OPObjectCount: 2
+  OPObjectCount: 3
   _spawnTime: 1
   _startPos: {fileID: 1103733618}
   _finishPos: {fileID: 1707275667}
   finishBoxPos: {fileID: 1938967252}
+  finishBoxInsidePos: {fileID: 984906971}
 --- !u!114 &1641147206
 MonoBehaviour:
   m_ObjectHideFlags: 0

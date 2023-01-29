@@ -25,7 +25,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
         FocusContract.noewItem++;
         if (FocusContract.objectCount[objectTypeCount] <= 0) FocusContract.objectTypeCount[objectTypeCount] = -2;
 
-        QueryContract();
+        StartCoroutine(QueryContract());
     }
 
     private Contract NewContract(int level, int levelMod, int maxItemCount, int maxitemTypeCount)
@@ -54,15 +54,19 @@ public class ContractSystem : MonoSingleton<ContractSystem>
 
         return contract;
     }
-    private void QueryContract()
+    private IEnumerator QueryContract()
     {
+        yield return null;
         bool isFinish = true;
 
         for (int i = 0; i < FocusContract.objectCount.Count; i++)
             if (FocusContract.objectCount[i] > 0) isFinish = false;
 
         if (isFinish)
+        {
+            yield return new WaitForSeconds(1.7f);
             StartCoroutine(FinishSystem.Instance.FinishMove());
+        }
     }
     public void ContractFinish()
     {
