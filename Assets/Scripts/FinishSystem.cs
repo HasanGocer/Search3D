@@ -29,6 +29,7 @@ public class FinishSystem : MonoSingleton<FinishSystem>
         isRotation = false;
         box.SetActive(false);
         StartCoroutine(ParticalSystem.Instance.CallFinishPartical(box));
+        yield return new WaitForSeconds(0.8f);
         ContractSystem.Instance.ContractFinish();
     }
 

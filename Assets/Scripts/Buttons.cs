@@ -88,7 +88,6 @@ public class Buttons : MonoSingleton<Buttons>
         GameManager.Instance.isStart = true;
         WrongSystem.Instance.FailPanel.SetActive(true);
 
-        StartCoroutine(FinishSystem.Instance.FinishMove());
         StartCoroutine(SpawnSystem.Instance.SpawnStart());
         TimerSystem.Instance.StartTimer();
         ContractUISystem.Instance.UIPlacement();
