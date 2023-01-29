@@ -5,10 +5,12 @@ using UnityEngine;
 public class SoundSystem : MonoSingleton<SoundSystem>
 {
     [SerializeField] private AudioSource mainSource;
-    [SerializeField] private AudioClip mainMusic, bloomEffect, goldEffect;
+    [SerializeField] private AudioClip mainMusic, objectTouch, bar, box;
 
     public void MainMusicPlay()
     {
+        mainSource.clip = mainMusic;
+        mainSource.Play();
         mainSource.volume = 70;
     }
 
@@ -17,13 +19,16 @@ public class SoundSystem : MonoSingleton<SoundSystem>
         mainSource.volume = 0;
     }
 
-    public void EffectCall()
+    public void CallObjectTouch()
     {
-        mainSource.PlayOneShot(bloomEffect);
+        mainSource.PlayOneShot(objectTouch);
     }
-    public void EffectGoldCall()
+    public void CallBar()
     {
-        mainSource.PlayOneShot(goldEffect);
-
+        mainSource.PlayOneShot(bar);
+    }
+    public void CallBox()
+    {
+        mainSource.PlayOneShot(box);
     }
 }

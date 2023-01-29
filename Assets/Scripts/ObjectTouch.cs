@@ -15,6 +15,8 @@ public class ObjectTouch : MonoBehaviour
         if (other.CompareTag("Sorter"))
         {
             transform.DOShakeScale(0.5f, 0.7f);
+            Vibration.Vibrate(30);
+            SoundSystem.Instance.CallObjectTouch();
 
             ContractSystem.Contract contract = ContractSystem.Instance.FocusContract;
             for (int i = 0; i < contract.objectTypeCount.Count; i++)
@@ -69,6 +71,7 @@ public class ObjectTouch : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
             if (1 > Vector3.Distance(transform.position, SpawnSystem.Instance.finishBoxInsidePos.transform.position))
             {
+
                 StartCoroutine(ParticalSystem.Instance.CallObjectBlastPartical(gameObject, tempID));
                 break;
             }

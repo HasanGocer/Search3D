@@ -73,6 +73,8 @@ public class ContractSystem : MonoSingleton<ContractSystem>
         ItemData.Field field = ItemData.Instance.field;
         Buttons.Instance.winPanel.SetActive(true);
 
+        Vibration.Vibrate(30);
+        SoundSystem.Instance.CallBar();
         LevelManager.Instance.CheckLevel();
         int money = Random.Range(10 * field.objectTypeCount, 30 * field.objectTypeCount);
         StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());

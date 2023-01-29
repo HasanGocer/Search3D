@@ -16,6 +16,8 @@ public class FinishSystem : MonoSingleton<FinishSystem>
         boxRight.enabled = true;
         boxLeft.enabled = true;
         isRotation = true;
+        Vibration.Vibrate(30);
+        SoundSystem.Instance.CallBox();
         StartCoroutine(BoxRotation());
         box.transform.DOMove(boxPos.transform.position, 2);
         yield return new WaitForSeconds(2.5f);
