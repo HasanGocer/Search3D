@@ -83,10 +83,10 @@ public class Buttons : MonoSingleton<Buttons>
     private void StartButton()
     {
         _startPanel.SetActive(false);
-        ContractUISystem.Instance.TaskPanel.SetActive(true);
         TimerSystem.Instance.TimerPanel.SetActive(true);
-        GameManager.Instance.isStart = true;
+        ContractUISystem.Instance.TaskPanel.SetActive(true);
         WrongSystem.Instance.FailPanel.SetActive(true);
+        GameManager.Instance.isStart = true;
 
         StartCoroutine(SpawnSystem.Instance.SpawnStart());
         TimerSystem.Instance.StartTimer();

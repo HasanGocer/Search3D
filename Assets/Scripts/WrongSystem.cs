@@ -18,9 +18,12 @@ public class WrongSystem : MonoSingleton<WrongSystem>
     {
         if (nowWrongCount >= maxWrongCount)
         {
+            ContractUISystem.Instance.TaskPanel.SetActive(false);
+            WrongSystem.Instance.FailPanel.SetActive(false);
             GameManager.Instance.isStart = false;
             Buttons.Instance.failPanel.SetActive(true);
             GameManager.Instance.isFinish = true;
+            SpawnSystem.Instance.ObjectOff();
             //CabinetSystem.Instance.AllObjectClose();
         }
         tempImage.transform.localScale = new Vector3(7, 7, 7);

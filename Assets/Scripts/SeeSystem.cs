@@ -18,7 +18,7 @@ public class SeeSystem : MonoSingleton<SeeSystem>
         yield return null;
         while (true)
         {
-            bigObject.transform.position = Vector3.MoveTowards(bigObject.transform.position, pos.transform.position, Time.deltaTime * 25);
+            bigObject.transform.position = Vector3.MoveTowards(bigObject.transform.position, pos.transform.position, Time.deltaTime * 35);
             yield return new WaitForSeconds(Time.deltaTime);
             if (0.2f > Vector3.Distance(bigObject.transform.position, pos.transform.position))
             {
@@ -33,7 +33,7 @@ public class SeeSystem : MonoSingleton<SeeSystem>
         yield return null;
         while (isBack)
         {
-            bigObject.transform.position = Vector3.MoveTowards(bigObject.transform.position, backPos.transform.position, Time.deltaTime * 25);
+            bigObject.transform.position = Vector3.MoveTowards(bigObject.transform.position, backPos.transform.position, Time.deltaTime * 35);
             yield return new WaitForSeconds(Time.deltaTime);
             if (0.2f > Vector3.Distance(bigObject.transform.position, backPos.transform.position))
             {
