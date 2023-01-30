@@ -5659,8 +5659,8 @@ MonoBehaviour:
   _startButton: {fileID: 2142299948747083643}
   _settingButton: {fileID: 3525476885897761201}
   _settingGame: {fileID: 7743830336254409811}
-  _red: {fileID: 0}
-  _green: {fileID: 0}
+  _red: {fileID: 21300000, guid: c18e14cdafadc574c8b33cbd5f62c955, type: 3}
+  _green: {fileID: 21300000, guid: 7dc690b2a03716e45be2487abae9f4ab, type: 3}
   _settingBackButton: {fileID: 3525476887538290897}
   _soundButton: {fileID: 3525476886116354806}
   _vibrationButton: {fileID: 3525476887572874166}
