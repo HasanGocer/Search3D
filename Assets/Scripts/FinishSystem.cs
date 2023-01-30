@@ -13,6 +13,7 @@ public class FinishSystem : MonoSingleton<FinishSystem>
 
     public IEnumerator FinishMove()
     {
+        box.SetActive(true);
         around.SetActive(false);
         yield return null;
         box.transform.DOMove(boxPos.transform.position, 1);
