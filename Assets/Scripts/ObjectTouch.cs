@@ -50,7 +50,6 @@ public class ObjectTouch : MonoBehaviour
         if (other.CompareTag("Remover"))
         {
             SpawnSystem.Instance.ObjectsID.RemoveAt(0);
-            StartCoroutine(SeeSystem.Instance.SeeObject());
         }
         if (other.CompareTag("ObjectBox") && isTrigger)
         {
