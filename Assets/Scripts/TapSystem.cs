@@ -19,25 +19,22 @@ public class TapSystem : MonoSingleton<TapSystem>
                 case TouchPhase.Began:
                     ColliderOpen();
                     break;
+                case TouchPhase.Ended:
+                    isOpen = false;
+                    TapGO.SetActive(false);
+                    redPlane.SetActive(true);
+                    greenPlane.SetActive(false);
+                    break;
             }
         }
     }
 
     private void ColliderOpen()
     {
-        if (!isOpen)
-        {
-            isOpen = true;
-            TapGO.SetActive(true);
-            redPlane.SetActive(false);
-            greenPlane.SetActive(true);
-        }
-        else
-        {
-            isOpen = false;
-            TapGO.SetActive(false);
-            redPlane.SetActive(true);
-            greenPlane.SetActive(false);
-        }
+        isOpen = true;
+        TapGO.SetActive(true);
+        redPlane.SetActive(false);
+        greenPlane.SetActive(true);
+
     }
 }
