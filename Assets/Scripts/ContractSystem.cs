@@ -64,11 +64,9 @@ public class ContractSystem : MonoSingleton<ContractSystem>
 
         if (isFinish && WrongSystem.Instance.nowWrongCount < WrongSystem.Instance.maxWrongCount)
         {
-            SpawnSystem.Instance.ObjectOff();
             ContractUISystem.Instance.TaskPanel.SetActive(false);
             WrongSystem.Instance.FailPanel.SetActive(false);
-            GameManager.Instance.isStart = false;
-            GameManager.Instance.isFinish = true;
+            GameManager.Instance.gameStat = GameManager.GameStat.finish;
             yield return new WaitForSeconds(1);
             StartCoroutine(FinishSystem.Instance.FinishMove());
         }

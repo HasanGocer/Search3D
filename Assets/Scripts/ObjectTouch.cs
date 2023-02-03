@@ -20,22 +20,16 @@ public class ObjectTouch : MonoBehaviour
 
             ContractSystem.Contract contract = ContractSystem.Instance.FocusContract;
             for (int i = 0; i < contract.objectTypeCount.Count; i++)
-                if (contract.objectTypeCount[i] == _IDCount && GameManager.Instance.isStart)
+                if (contract.objectTypeCount[i] == _IDCount && GameManager.Instance.gameStat == GameManager.GameStat.start)
                 {
                     ContractUISystem.Instance.TaskDown(_IDCount);
                     tempID = _IDCount;
                     _IDCount = -1;
                     isTrigger = true;
                     TimerSystem.Instance.BarUpdate(ContractSystem.Instance.FocusContract.maxItem, ContractSystem.Instance.FocusContract.noewItem, 1);
-
-                    if (transform.position.z - other.transform.position.z > 0)
-                        StartCoroutine(GoMid(other.gameObject));
-                    else
-                        OnTheList();
                 }
 
-
-            if (!isTrigger && GameManager.Instance.isStart)
+            if (!isTrigger && GameManager.Instance.gameStat == GameManager.GameStat.start)
             {
                 isTrigger = true;
                 tempID = _IDCount;
@@ -55,17 +49,6 @@ public class ObjectTouch : MonoBehaviour
         {
             isObjectBoxTrigger = true;
             OnTheList();
-        }
-    }
-    private IEnumerator GoMid(GameObject pos)
-    {
-        StartCoroutine(SeeSystem.Instance.GoObject(pos));
-        SeeSystem.Instance.isBack = false;
-        yield return null;
-        while (!isObjectBoxTrigger && GameManager.Instance.isStart)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, pos.transform.position, Time.deltaTime * 18);
-            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
 
@@ -107,7 +90,7 @@ public class ObjectTouch : MonoBehaviour
     public IEnumerator Move(GameObject target)
     {
         yield return null;
-        while (!isTrigger && GameManager.Instance.isStart)
+        while (!isTrigger && GameManager.Instance.gameStat == GameManager.GameStat.start)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * 18);
             yield return new WaitForSeconds(Time.deltaTime);

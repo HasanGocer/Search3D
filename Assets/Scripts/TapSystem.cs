@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TapSystem : MonoSingleton<TapSystem>
 {
+    /*
     [SerializeField] private GameObject TapGO;
     [SerializeField] private GameObject redPlane, greenPlane;
     Touch touch;
@@ -11,7 +12,7 @@ public class TapSystem : MonoSingleton<TapSystem>
 
     void Update()
     {
-        if (Input.touchCount > 0 && GameManager.Instance.isStart)
+        if (Input.touchCount > 0 && GameManager.Instance.gameStat == GameManager.GameStat.start)
         {
             touch = Input.GetTouch(0);
             switch (touch.phase)
@@ -36,5 +37,5 @@ public class TapSystem : MonoSingleton<TapSystem>
         redPlane.SetActive(false);
         greenPlane.SetActive(true);
 
-    }
+    }*/
 }

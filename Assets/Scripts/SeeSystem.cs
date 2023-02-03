@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SeeSystem : MonoSingleton<SeeSystem>
 {
-    [SerializeField] private GameObject bigObject, seeObject, backPos;
+    /*[SerializeField] private GameObject bigObject, seeObject, backPos;
     public bool isBack;
 
     public IEnumerator SeeObject()
@@ -49,5 +49,5 @@ public class SeeSystem : MonoSingleton<SeeSystem>
         {
             seeObject.transform.GetChild(i).gameObject.SetActive(false);
         }
-    }
+    }*/
 }

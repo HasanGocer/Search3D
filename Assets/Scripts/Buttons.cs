@@ -60,13 +60,9 @@ public class Buttons : MonoSingleton<Buttons>
         }
 
         if (gameManager.vibration == 1)
-        {
             vibrationImage.sprite = _green;
-        }
         else
-        {
             vibrationImage.sprite = _red;
-        }
     }
     private void ButtonPlacement()
     {
@@ -86,7 +82,7 @@ public class Buttons : MonoSingleton<Buttons>
         TimerSystem.Instance.TimerPanel.SetActive(true);
         ContractUISystem.Instance.TaskPanel.SetActive(true);
         WrongSystem.Instance.FailPanel.SetActive(true);
-        GameManager.Instance.isStart = true;
+        GameManager.Instance.gameStat = GameManager.GameStat.start;
 
         StartCoroutine(SpawnSystem.Instance.SpawnStart());
         TimerSystem.Instance.StartTimer();
@@ -124,7 +120,7 @@ public class Buttons : MonoSingleton<Buttons>
     }
     private void SettingBackButton()
     {
-        if (!GameManager.Instance.isStart)
+        if (GameManager.Instance.gameStat == GameManager.GameStat.intro)
             _startPanel.SetActive(true);
         _settingGame.SetActive(false);
         _settingButton.gameObject.SetActive(true);

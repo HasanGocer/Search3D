@@ -17,7 +17,7 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
         {
             yield return null;
 
-            if (GameManager.Instance.isStart)
+            if (GameManager.Instance.gameStat == GameManager.GameStat.start)
             {
                 int count = Random.Range(0, ItemData.Instance.field.objectTypeCount);
                 GameObject obj = ObjectPool.Instance.GetPooledObject(OPObjectCount + count);
@@ -29,10 +29,5 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
                 yield return new WaitForSeconds(_spawnTime);
             }
         }
-    }
-
-    public void ObjectOff()
-    {
-        foreach (GameObject item in ObjectsGO) item.SetActive(false);
     }
 }
