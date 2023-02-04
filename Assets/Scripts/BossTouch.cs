@@ -25,6 +25,8 @@ public class BossTouch : MonoBehaviour
         }
         if (other.CompareTag("Finish"))
         {
+            SpawnSystem.Instance.PlaneOff();
+            PointText.Instance.pointTextParent.SetActive(false);
             gameObject.SetActive(false);
             ContractSystem.Instance.ContractFinish();
         }

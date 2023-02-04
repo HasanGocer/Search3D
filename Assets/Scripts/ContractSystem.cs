@@ -66,6 +66,8 @@ public class ContractSystem : MonoSingleton<ContractSystem>
         {
             ContractUISystem.Instance.TaskPanel.SetActive(false);
             WrongSystem.Instance.FailPanel.SetActive(false);
+            PointText.Instance.pointTextParent.SetActive(false);
+            SpawnSystem.Instance.ObjectSetActiveFalse();
             GameManager.Instance.gameStat = GameManager.GameStat.finish;
             yield return new WaitForSeconds(1);
             StartCoroutine(FinishSystem.Instance.FinishMove());

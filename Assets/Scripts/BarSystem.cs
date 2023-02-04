@@ -23,8 +23,8 @@ public class BarSystem : MonoSingleton<BarSystem>
     public IEnumerator BarImageFillAmountIenum()
     {
         isFinish = true;
-        if (GameManager.Instance.level % 5 == 0)
-            barPanel.SetActive(true);
+        barPanel.SetActive(true);
+        Buttons.Instance.finishGameMoneyText.text = MoneySystem.Instance.NumberTextRevork(GameManager.Instance.addedMoney);
 
         while (isFinish && GameManager.Instance.level % 5 == 0)
         {

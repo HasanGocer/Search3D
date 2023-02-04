@@ -40,7 +40,6 @@ public class ItemData : MonoSingleton<ItemData>
             fieldPrice.objectCount = fieldPrice.objectCount * factor.objectCount;
         }
 
-
         ContractSystem.Instance.FirstStart();
     }
 

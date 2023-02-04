@@ -39,6 +39,11 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
             if (_planes[i].activeInHierarchy)
                 StartCoroutine(PlaneOffPlacement(i));
     }
+    public void ObjectSetActiveFalse()
+    {
+        for (int i = 0; i < ObjectsGO.Count; i++)
+            ObjectsGO[i].SetActive(false);
+    }
 
     private IEnumerator PlaneOffPlacement(int i)
     {

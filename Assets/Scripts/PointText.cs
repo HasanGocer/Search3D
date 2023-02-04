@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class PointText : MonoSingleton<PointText>
 {
+    public GameObject pointTextParent;
     [SerializeField] private int _OPMoneyInt;
     [SerializeField] private float _textMoveTime;
     [SerializeField] private float _moneyJumpDistance;
@@ -16,6 +17,7 @@ public class PointText : MonoSingleton<PointText>
         GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMoneyInt);
         if (isCorrect) obj.GetComponent<TMP_Text>().color = Color.green;
         else obj.GetComponent<TMP_Text>().color = Color.red;
+        obj.transform.SetParent(pointTextParent.transform);
         obj.GetComponent<TMP_Text>().text = count.ToString();
         obj.transform.position = Pos.transform.position;
         obj.transform.DOMove(new Vector3(Pos.transform.position.x, Pos.transform.position.y + _moneyJumpDistance, Pos.transform.position.z), _textMoveTime).SetEase(_moveEaseType);
