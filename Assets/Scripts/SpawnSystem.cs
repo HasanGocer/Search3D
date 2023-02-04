@@ -47,8 +47,8 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
 
     private IEnumerator PlaneOffPlacement(int i)
     {
-        _planes[i].transform.DOMove(_planesFinishPos[i].transform.position, 1).SetEase(Ease.InOutSine);
-        yield return new WaitForSeconds(1);
+        _planes[i].transform.DOMove(_planesFinishPos[i].transform.position, 0.8f).SetEase(Ease.InOutSine);
+        yield return new WaitForSeconds(0.8f);
     }
     private IEnumerator PlaneOnPlacement(int i)
     {

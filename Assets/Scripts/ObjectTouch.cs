@@ -61,8 +61,8 @@ public class ObjectTouch : MonoBehaviour
 
     private IEnumerator FinishPositionMove(int ID)
     {
-        transform.DOJump(SpawnSystem.Instance.finishPos.transform.position, 2, 2, 1);
-        yield return new WaitForSeconds(1);
+        transform.DOJump(SpawnSystem.Instance.finishPos.transform.position, 2, 2, 2f);
+        yield return new WaitForSeconds(2);
         BackObject(ID);
     }
     private void BackObject(int ID)

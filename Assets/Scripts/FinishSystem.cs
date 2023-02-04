@@ -12,9 +12,9 @@ public class FinishSystem : MonoSingleton<FinishSystem>
 
     public IEnumerator FinishMove()
     {
-        box.SetActive(true);
         SpawnSystem.Instance.PlaneOff();
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
+        box.SetActive(true);
         box.transform.DOMove(boxPos.transform.position, 1);
         yield return new WaitForSeconds(1f);
         StartCoroutine(BoxObjectSpawn());
@@ -85,7 +85,7 @@ public class FinishSystem : MonoSingleton<FinishSystem>
     {
         while (isRotation)
         {
-            box.transform.DORotate(Vector3.up * Time.deltaTime * 450 + box.transform.eulerAngles, Time.deltaTime);
+            box.transform.DORotate(Vector3.up * Time.deltaTime * 350 + box.transform.eulerAngles, Time.deltaTime);
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
