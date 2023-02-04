@@ -61,7 +61,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
 
         for (int i = 0; i < FocusContract.objectCount.Count; i++)
             if (FocusContract.objectCount[i] > 0) isFinish = false;
-        print(isFinish);
+
         if (isFinish && WrongSystem.Instance.nowWrongCount <= WrongSystem.Instance.maxWrongCount)
         {
             ContractUISystem.Instance.TaskPanel.SetActive(false);
@@ -79,7 +79,7 @@ public class ContractSystem : MonoSingleton<ContractSystem>
         Vibration.Vibrate(30);
         SoundSystem.Instance.CallBar();
         LevelManager.Instance.CheckLevel();
-        StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
-        // StartCoroutine(Buttons.Instance.NoThanxOnActive());
+        if (GameManager.Instance.level % 5 == 0)
+            StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
     }
 }

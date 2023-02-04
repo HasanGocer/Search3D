@@ -12,17 +12,26 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
     [SerializeField] List<GameObject> _planes = new List<GameObject>();
     [SerializeField] List<GameObject> _planesStartPos = new List<GameObject>();
     [SerializeField] List<GameObject> _planesFinishPos = new List<GameObject>();
+    public GameObject bossGO;
     public GameObject finishPos;
     public int finishMoveFactor;
     public List<GameObject> ObjectsGO = new List<GameObject>();
 
     public void PlaneOpen()
     {
-        StartCoroutine(PlaneOnPlacement(0));
+        if (GameManager.Instance.level % 5 != 0)
+        {
+            StartCoroutine(PlaneOnPlacement(0));
 
-        for (int i = 1; i < _planes.Count; i++)
-            if (Random.Range(0, 2) == 1)
-                StartCoroutine(PlaneOnPlacement(i));
+            for (int i = 1; i < _planes.Count; i++)
+                if (Random.Range(0, 2) == 1)
+                    StartCoroutine(PlaneOnPlacement(i));
+        }
+        else
+        {
+            StartCoroutine(PlaneOnPlacement(1));
+        }
+
     }
     public void PlaneOff()
     {
@@ -41,9 +50,22 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
         _planes[i].SetActive(true);
         _planes[i].transform.DOMove(_planesStartPos[i].transform.position, 1).SetEase(Ease.InOutSine);
         yield return new WaitForSeconds(1);
-        StartCoroutine(SpawnStart(i));
+        if (GameManager.Instance.level % 5 != 0)
+            StartCoroutine(SpawnStart(i));
+        else
+            StartCoroutine(BossMove(_planesFinishPos[1].transform.gameObject));
     }
+    private IEnumerator BossMove(GameObject target)
+    {
+        GameObject tempBossGO = Instantiate(bossGO);
+        tempBossGO.transform.position = _planesStartPos[1].transform.position + new Vector3(0, 1, 0);
 
+        while (true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * 3);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
     private IEnumerator SpawnStart(int i)
     {
         while (true)

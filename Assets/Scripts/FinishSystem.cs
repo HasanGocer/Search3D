@@ -6,8 +6,7 @@ using DG.Tweening;
 
 public class FinishSystem : MonoSingleton<FinishSystem>
 {
-    [SerializeField] private GameObject box, boxPos, finishSpawnPos;
-    [SerializeField] Animator boxRight, boxLeft;
+    [SerializeField] private GameObject box, upperBox, upperBoxPos, boxPos, finishSpawnPos;
     bool isRotation;
 
 
@@ -20,8 +19,8 @@ public class FinishSystem : MonoSingleton<FinishSystem>
         yield return new WaitForSeconds(1f);
         StartCoroutine(BoxObjectSpawn());
         yield return new WaitForSeconds(1f);
-        boxRight.enabled = true;
-        boxLeft.enabled = true;
+        upperBox.transform.SetParent(box.transform);
+        StartCoroutine(UpperBoxMove());
         isRotation = true;
         Vibration.Vibrate(30);
         SoundSystem.Instance.CallBox();
@@ -34,11 +33,23 @@ public class FinishSystem : MonoSingleton<FinishSystem>
         ContractSystem.Instance.ContractFinish();
     }
 
+    private IEnumerator UpperBoxMove()
+    {
+        float lerpCount = 0;
+
+        while (true)
+        {
+            lerpCount += Time.deltaTime * 5;
+            upperBox.transform.position = Vector3.Lerp(upperBox.transform.position, upperBoxPos.transform.position, lerpCount);
+            yield return new WaitForSeconds(Time.deltaTime);
+            if (0.3f > Vector3.Distance(upperBox.transform.position, upperBoxPos.transform.position)) break;
+        }
+    }
     public IEnumerator BoxObjectSpawn()
     {
         List<GameObject> objects = new List<GameObject>();
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             GameObject obj = ObjectPool.Instance.GetPooledObject(SpawnSystem.Instance.OPObjectCount + i);
             obj.transform.position = finishSpawnPos.transform.position;
@@ -46,10 +57,11 @@ public class FinishSystem : MonoSingleton<FinishSystem>
             obj.GetComponent<Rigidbody>().useGravity = true;
             objects.Add(obj);
             box.transform.DOShakeScale(0.08f, 0.2f);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         yield return new WaitForSeconds(0.5f);
         foreach (GameObject item in objects) item.SetActive(false);
+        box.transform.DORotate(new Vector3(0, 0, 0), 0.2f);
     }
 
     private IEnumerator BoxRotation()
