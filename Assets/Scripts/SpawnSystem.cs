@@ -53,16 +53,16 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
         if (GameManager.Instance.level % 5 != 0)
             StartCoroutine(SpawnStart(i));
         else
-            StartCoroutine(BossMove(_planesFinishPos[1].transform.gameObject));
+            StartCoroutine(BossMove(_finishPos[1].transform.position + new Vector3(0, 3, 0)));
     }
-    private IEnumerator BossMove(GameObject target)
+    private IEnumerator BossMove(Vector3 target)
     {
         GameObject tempBossGO = Instantiate(bossGO);
-        tempBossGO.transform.position = _planesStartPos[1].transform.position + new Vector3(0, 1, 0);
-
+        tempBossGO.transform.position = _planesStartPos[1].transform.position + new Vector3(0, 3, 0);
+        yield return null;
         while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * 3);
+            tempBossGO.transform.position = Vector3.MoveTowards(tempBossGO.transform.position, target, Time.deltaTime * 6);
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
