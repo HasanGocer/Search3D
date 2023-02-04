@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class FinishSystem : MonoSingleton<FinishSystem>
 {
-    [SerializeField] private GameObject box, boxPos, finishSpawnPos, around;
+    [SerializeField] private GameObject box, boxPos, finishSpawnPos;
     [SerializeField] Animator boxRight, boxLeft;
     bool isRotation;
 
@@ -14,7 +14,7 @@ public class FinishSystem : MonoSingleton<FinishSystem>
     public IEnumerator FinishMove()
     {
         box.SetActive(true);
-        around.SetActive(false);
+        SpawnSystem.Instance.PlaneOff();
         yield return null;
         box.transform.DOMove(boxPos.transform.position, 1);
         yield return new WaitForSeconds(1f);

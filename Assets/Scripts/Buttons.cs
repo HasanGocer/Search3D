@@ -84,7 +84,7 @@ public class Buttons : MonoSingleton<Buttons>
         WrongSystem.Instance.FailPanel.SetActive(true);
         GameManager.Instance.gameStat = GameManager.GameStat.start;
 
-        StartCoroutine(SpawnSystem.Instance.SpawnStart());
+        SpawnSystem.Instance.PlaneOpen();
         TimerSystem.Instance.StartTimer();
         ContractUISystem.Instance.UIPlacement();
         //StartCoroutine(TimerSystem.Instance.TimerStart());
@@ -92,16 +92,20 @@ public class Buttons : MonoSingleton<Buttons>
     private IEnumerator WinButton()
     {
         _winPrizeButton.enabled = false;
-        BarSystem.Instance.BarStopButton(0);
         GameManager.Instance.SetLevel();
-        MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
+        if (GameManager.Instance.level % 5 == 0)
+        {
+            BarSystem.Instance.BarStopButton(0);
+            MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
+        }
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(0);
     }
     private IEnumerator WinPrizeButton()
     {
         _winPrizeButton.enabled = false;
-        BarSystem.Instance.BarStopButton(GameManager.Instance.addedMoney);
+        if (GameManager.Instance.level % 5 == 0)
+            BarSystem.Instance.BarStopButton(GameManager.Instance.addedMoney);
         GameManager.Instance.SetLevel();
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(0);

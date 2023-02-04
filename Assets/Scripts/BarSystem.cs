@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BarSystem : MonoSingleton<BarSystem>
 {
     [SerializeField] private Image _bar;
+    [SerializeField] GameObject barPanel;
     public bool isFinish;
     [SerializeField] private bool _goRight = true;
     public int barMoneyFactor;
@@ -22,7 +23,10 @@ public class BarSystem : MonoSingleton<BarSystem>
     public IEnumerator BarImageFillAmountIenum()
     {
         isFinish = true;
-        while (isFinish)
+        if (GameManager.Instance.level % 5 == 0)
+            barPanel.SetActive(true);
+
+        while (isFinish && GameManager.Instance.level % 5 == 0)
         {
             if (_goRight)
             {

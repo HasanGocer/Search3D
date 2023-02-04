@@ -8,29 +8,45 @@ public class ObjectTouch : MonoBehaviour
     [SerializeField] int _IDCount;
     int tempID;
     public bool isTrigger;
-    bool isObjectBoxTrigger;
+    bool isBall;
+
+    private void OnMouseDown()
+    {
+        if (isBall == false)
+        {
+            isBall = true;
+            HitSystem.Instance.BallJump(gameObject);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Sorter"))
+        if (other.CompareTag("Sorter") && !isTrigger)
         {
             transform.DOShakeScale(0.5f, 0.7f);
             Vibration.Vibrate(30);
             SoundSystem.Instance.CallObjectTouch();
-
+            HitSystem.Instance.BackObject(other.gameObject);
             ContractSystem.Contract contract = ContractSystem.Instance.FocusContract;
             for (int i = 0; i < contract.objectTypeCount.Count; i++)
-                if (contract.objectTypeCount[i] == _IDCount && GameManager.Instance.gameStat == GameManager.GameStat.start)
+                if (contract.objectTypeCount[i] == _IDCount && GameManager.Instance.gameStat == GameManager.GameStat.start && !isTrigger)
                 {
+                    int monetCount = Random.Range(5, 10);
+                    MoneySystem.Instance.MoneyTextRevork(monetCount);
+                    StartCoroutine(PointText.Instance.CallPointMoneyText(gameObject, monetCount, true));
                     ContractUISystem.Instance.TaskDown(_IDCount);
                     tempID = _IDCount;
                     _IDCount = -1;
                     isTrigger = true;
+                    StartCoroutine(FinishPositionMove(tempID));
                     TimerSystem.Instance.BarUpdate(ContractSystem.Instance.FocusContract.maxItem, ContractSystem.Instance.FocusContract.noewItem, 1);
                 }
 
             if (!isTrigger && GameManager.Instance.gameStat == GameManager.GameStat.start)
             {
+                int monetCount = Random.Range(5, 10);
+                MoneySystem.Instance.MoneyTextRevork(-1 * monetCount);
+                StartCoroutine(PointText.Instance.CallPointMoneyText(gameObject, monetCount, false));
                 isTrigger = true;
                 tempID = _IDCount;
                 _IDCount = -1;
@@ -41,51 +57,17 @@ public class ObjectTouch : MonoBehaviour
         {
             ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + _IDCount, gameObject);
         }
-        if (other.CompareTag("Remover"))
-        {
-            SpawnSystem.Instance.ObjectsID.RemoveAt(0);
-        }
-        if (other.CompareTag("ObjectBox") && isTrigger)
-        {
-            isObjectBoxTrigger = true;
-            OnTheList();
-        }
     }
 
-    private void OnTheList()
+    private IEnumerator FinishPositionMove(int ID)
     {
-        StartCoroutine(MoveToFinishBox());
+        transform.DOJump(SpawnSystem.Instance.finishPos.transform.position, 2, 2, 1);
+        yield return new WaitForSeconds(1);
+        BackObject(ID);
     }
-    private IEnumerator MoveToFinishBox()
+    private void BackObject(int ID)
     {
-        float lerpCount = 0;
-
-        while (true)
-        {
-            lerpCount += Time.deltaTime / 3;
-            transform.position = Vector3.Lerp(transform.position, SpawnSystem.Instance.finishBoxPos.transform.position, lerpCount);
-            yield return new WaitForSeconds(Time.deltaTime);
-            if (1 > Vector3.Distance(transform.position, SpawnSystem.Instance.finishBoxPos.transform.position))
-            {
-                ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + tempID, gameObject);
-                break;
-            }
-        }
-    }
-    private IEnumerator MoveToBoxInside()
-    {
-        float lerpCount = 0;
-
-        while (true)
-        {
-            lerpCount += Time.deltaTime / 3;
-            transform.position = Vector3.Lerp(transform.position, SpawnSystem.Instance.finishBoxInsidePos.transform.position, lerpCount);
-            yield return new WaitForSeconds(Time.deltaTime);
-            if (1 > Vector3.Distance(transform.position, SpawnSystem.Instance.finishBoxInsidePos.transform.position))
-            {
-                break;
-            }
-        }
+        ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + ID, gameObject);
     }
     public IEnumerator Move(GameObject target)
     {
