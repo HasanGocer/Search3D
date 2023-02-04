@@ -7,6 +7,7 @@ public class BossTouch : MonoBehaviour
 {
     private void OnMouseDown()
     {
+        print(1);
         HitSystem.Instance.BallJump(gameObject);
     }
 
