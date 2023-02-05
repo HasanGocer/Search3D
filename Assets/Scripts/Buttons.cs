@@ -80,16 +80,16 @@ public class Buttons : MonoSingleton<Buttons>
     {
         GameManager.Instance.gameStat = GameManager.GameStat.start;
         _startPanel.SetActive(false);
-        SpawnSystem.Instance.PlaneOpen();
 
         if (GameManager.Instance.level % 5 != 0)
         {
-            TimerSystem.Instance.TimerPanel.SetActive(true);
+            //TimerSystem.Instance.TimerPanel.SetActive(true);
             ContractUISystem.Instance.TaskPanel.SetActive(true);
             WrongSystem.Instance.FailPanel.SetActive(true);
-            TimerSystem.Instance.StartTimer();
+            //TimerSystem.Instance.StartTimer();
             ContractUISystem.Instance.UIPlacement();
         }
+        StartCoroutine(ContractSystem.Instance.TaskAnim());
     }
     private IEnumerator WinButton()
     {

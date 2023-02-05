@@ -15,6 +15,8 @@ public class ContractSystem : MonoSingleton<ContractSystem>
 
     public Contract FocusContract = new Contract();
 
+    public GameObject taskAnim, bossAnim;
+
     public void FirstStart()
     {
         FocusContract = NewContract(GameManager.Instance.level, 2, ItemData.Instance.field.objectCount, ItemData.Instance.field.objectTypeCount);
@@ -83,5 +85,16 @@ public class ContractSystem : MonoSingleton<ContractSystem>
         LevelManager.Instance.CheckLevel();
         if (GameManager.Instance.level % 5 == 0)
             StartCoroutine(BarSystem.Instance.BarImageFillAmountIenum());
+    }
+    public IEnumerator TaskAnim()
+    {
+        if (GameManager.Instance.level % 5 != 0)
+            taskAnim.SetActive(true);
+        else
+            bossAnim.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SpawnSystem.Instance.PlaneOpen();
+        taskAnim.SetActive(false);
+        bossAnim.SetActive(false);
     }
 }

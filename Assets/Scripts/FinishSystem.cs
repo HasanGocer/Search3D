@@ -76,7 +76,7 @@ public class FinishSystem : MonoSingleton<FinishSystem>
             yield return new WaitForSeconds(0.05f);
         }
         yield return new WaitForSeconds(1f);
-        StartCoroutine(ReRotation());
+        //StartCoroutine(ReRotation());
         yield return new WaitForSeconds(1.5f);
         foreach (GameObject item in objects) item.SetActive(false);
     }
