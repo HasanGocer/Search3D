@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39327633, g: 0.36369687, b: 0.24824154, a: 1}
+  m_IndirectSpecularColor: {r: 0.39327633, g: 0.36369687, b: 0.24824156, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5360,8 +5360,7 @@ MonoBehaviour:
   - objectPrefab: {fileID: 6212779207743706348, guid: 71ac65a1535b94a43abf8cc3569a44ee,
       type: 3}
     poolSize: 100
-  - objectPrefab: {fileID: 1575721338728490, guid: 4171bb92c5c591848b14be1db6f3efe2,
-      type: 3}
+  - objectPrefab: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
     poolSize: 100
   - objectPrefab: {fileID: 1589019458639318, guid: fb2dbd343895b6c47888986bf91da33c,
       type: 3}
