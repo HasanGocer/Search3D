@@ -5369,8 +5369,10 @@ MonoBehaviour:
   - objectPrefab: {fileID: 84029636620937701, guid: 1703c557422754b488d8c643727d23f5,
       type: 3}
     poolSize: 100
-  - objectPrefab: {fileID: 789248671208006424, guid: 953fb4c9347905346879a2d8ca7acd68,
+  - objectPrefab: {fileID: 1670336210522388, guid: 19c065b476ca9a24e839e181a781c36c,
       type: 3}
+    poolSize: 10
+  - objectPrefab: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
     poolSize: 100
   - objectPrefab: {fileID: 8550619513073654372, guid: 14f900e31a405994180b169e7ea9cc2d,
       type: 3}
@@ -5430,8 +5432,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _OPFinishParticalCount: 1
   _OPObjectBlastCount: 2
+  _OPFinishConfettiCount: 4
+  _OPBossCoinCount: 5
   _finishParticalTime: 1
   _objectBlastParticalTime: 1.7
+  _bossCoinTime: 1
 --- !u!114 &1386917219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5850,7 +5855,7 @@ RectTransform:
   m_GameObject: {fileID: 1496384233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3625, y: 1.275, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604726038}
@@ -6593,7 +6598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f330adb1aa11f1549b4df2258e0309ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OPObjectCount: 4
+  OPObjectCount: 6
   _spawnTime: 1
   _startPos:
   - {fileID: 1747964435}
@@ -6615,7 +6620,10 @@ MonoBehaviour:
   - {fileID: 801532457}
   - {fileID: 801532457}
   - {fileID: 801532457}
-  bossGO: {fileID: 5910643162362963394, guid: 7be1eba495244cc46aa00ffca4425958, type: 3}
+  bossGO:
+  - {fileID: 770775935772636749, guid: 44f1079a19b984349a28271d98d3d0df, type: 3}
+  - {fileID: 1573175421048127562, guid: 8ff5ae8f5a8daee418c03f42c89cc720, type: 3}
+  - {fileID: 789248671208006424, guid: 3e203b9e4a7cad942a18513473f8c4af, type: 3}
   finishPos: {fileID: 2015031118}
   finishMoveFactor: 8
   ObjectsGO: []

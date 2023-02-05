@@ -18,6 +18,7 @@ public class BossTouch : MonoBehaviour
             transform.DOShakeScale(0.5f, 0.7f);
             Vibration.Vibrate(30);
             SoundSystem.Instance.CallObjectTouch();
+            StartCoroutine(ParticalSystem.Instance.CallBossCoinPartical(gameObject));
             HitSystem.Instance.BackObject(other.gameObject);
             int monetCount = Random.Range(5, 10);
             StartCoroutine(PointText.Instance.CallPointMoneyText(gameObject, monetCount, true));

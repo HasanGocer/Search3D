@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ParticalSystem : MonoSingleton<ParticalSystem>
 {
-    [SerializeField] int _OPFinishParticalCount, _OPObjectBlastCount;
-    [SerializeField] float _finishParticalTime, _objectBlastParticalTime;
+    [SerializeField] int _OPFinishParticalCount, _OPObjectBlastCount, _OPFinishConfettiCount, _OPBossCoinCount;
+    [SerializeField] float _finishParticalTime, _objectBlastParticalTime, _bossCoinTime;
 
     public IEnumerator CallFinishPartical(GameObject pos)
     {
@@ -20,5 +20,17 @@ public class ParticalSystem : MonoSingleton<ParticalSystem>
         obj.transform.position = pos.transform.position;
         yield return new WaitForSeconds(_objectBlastParticalTime);
         ObjectPool.Instance.AddObject(_OPObjectBlastCount, obj);
+    }
+    public void CallFinishConfettiPartical(GameObject pos)
+    {
+        GameObject obj = ObjectPool.Instance.GetPooledObject(_OPFinishConfettiCount);
+        obj.transform.position = pos.transform.position;
+    }
+    public IEnumerator CallBossCoinPartical(GameObject pos)
+    {
+        GameObject obj = ObjectPool.Instance.GetPooledObject(_OPBossCoinCount);
+        obj.transform.position = pos.transform.position;
+        yield return new WaitForSeconds(_bossCoinTime);
+        ObjectPool.Instance.AddObject(_OPBossCoinCount, obj);
     }
 }

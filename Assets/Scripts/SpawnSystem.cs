@@ -12,7 +12,7 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
     [SerializeField] List<GameObject> _planes = new List<GameObject>();
     [SerializeField] List<GameObject> _planesStartPos = new List<GameObject>();
     [SerializeField] List<GameObject> _planesFinishPos = new List<GameObject>();
-    public GameObject bossGO;
+    public List<GameObject> bossGO = new List<GameObject>();
     public GameObject finishPos;
     public int finishMoveFactor;
     public List<GameObject> ObjectsGO = new List<GameObject>();
@@ -62,7 +62,7 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
     }
     private IEnumerator BossMove(Vector3 target)
     {
-        GameObject tempBossGO = Instantiate(bossGO);
+        GameObject tempBossGO = Instantiate(bossGO[Random.Range(0, bossGO.Count)]);
         tempBossGO.transform.position = _planesStartPos[1].transform.position + new Vector3(0, 3, 0);
         yield return null;
         while (true)
