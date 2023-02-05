@@ -35,6 +35,7 @@ public class WrongSystem : MonoSingleton<WrongSystem>
         nowWrongCount++;
         tempImage.gameObject.SetActive(false);
         WrongImage[nowWrongCount - 1] = CallWrong(WrongImage[nowWrongCount - 1], wrongMark, redMat);
+        yield return new WaitForSeconds(2f);
         ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + IDCount, obj);
     }
 
