@@ -14,6 +14,11 @@ public class WrongSystem : MonoSingleton<WrongSystem>
     [SerializeField] Sprite wrongMark;
     [SerializeField] Material redMat, Mat2D;
 
+    public void WrongCanvas(GameObject obj, int IDCount)
+    {
+        StartCoroutine(WrongCanvasMove(obj, IDCount));
+    }
+
     public IEnumerator WrongCanvasMove(GameObject obj, int IDCount)
     {
         if (nowWrongCount >= maxWrongCount)

@@ -50,7 +50,7 @@ public class ObjectTouch : MonoBehaviour
                 isTrigger = true;
                 tempID = _IDCount;
                 _IDCount = -1;
-                StartCoroutine(WrongSystem.Instance.WrongCanvasMove(gameObject, tempID));
+                WrongSystem.Instance.WrongCanvas(gameObject, tempID);
             }
         }
         if (other.CompareTag("Finish"))
