@@ -5374,6 +5374,9 @@ MonoBehaviour:
     poolSize: 10
   - objectPrefab: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
     poolSize: 100
+  - objectPrefab: {fileID: 789248671208006424, guid: 953fb4c9347905346879a2d8ca7acd68,
+      type: 3}
+    poolSize: 100
   - objectPrefab: {fileID: 8550619513073654372, guid: 14f900e31a405994180b169e7ea9cc2d,
       type: 3}
     poolSize: 100
