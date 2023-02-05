@@ -31,11 +31,11 @@ public class WrongSystem : MonoSingleton<WrongSystem>
         obj.transform.position = freePos.transform.position;
         tempImage.transform.DOScale(new Vector3(1, 1, 1), 0.5f);
         tempImage.transform.DOMove(WrongImage[nowWrongCount].gameObject.transform.position, 0.5f).SetEase(Ease.InOutSine);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1f);
         nowWrongCount++;
         tempImage.gameObject.SetActive(false);
         WrongImage[nowWrongCount - 1] = CallWrong(WrongImage[nowWrongCount - 1], wrongMark, redMat);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.7f);
         ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + IDCount, obj);
     }
 

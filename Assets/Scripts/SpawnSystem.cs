@@ -54,7 +54,7 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
     {
         _planes[i].SetActive(true);
         _planes[i].transform.DOMove(_planesStartPos[i].transform.position, 1).SetEase(Ease.InOutSine);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1 + i * 0.2f);
         if (GameManager.Instance.level % 5 != 0)
             StartCoroutine(SpawnStart(i));
         else

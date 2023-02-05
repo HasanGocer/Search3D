@@ -33,7 +33,7 @@ public class ObjectTouch : MonoBehaviour
                 {
                     int monetCount = Random.Range(5, 10);
                     MoneySystem.Instance.MoneyTextRevork(monetCount);
-                    StartCoroutine(PointText.Instance.CallPointMoneyText(gameObject, monetCount, true));
+                    PointText.Instance.CallMoneyText(gameObject, monetCount, true);
                     ContractUISystem.Instance.TaskDown(_IDCount);
                     tempID = _IDCount;
                     _IDCount = -1;

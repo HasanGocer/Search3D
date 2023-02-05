@@ -12,6 +12,11 @@ public class PointText : MonoSingleton<PointText>
     [SerializeField] private float _moneyJumpDistance;
     [SerializeField] Ease _moveEaseType = Ease.InOutBounce;
 
+    public void CallMoneyText(GameObject Pos, int count, bool isCorrect)
+    {
+        StartCoroutine(CallPointMoneyText(Pos, count, isCorrect));
+    }
+
     public IEnumerator CallPointMoneyText(GameObject Pos, int count, bool isCorrect)
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMoneyInt);

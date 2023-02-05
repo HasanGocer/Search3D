@@ -27,7 +27,7 @@ public class FinishSystem : MonoSingleton<FinishSystem>
         yield return new WaitForSeconds(1.8f);
         isRotation = false;
         box.SetActive(false);
-        StartCoroutine(ParticalSystem.Instance.CallFinishPartical(box));
+        for (int i = 0; i < 3; i++) StartCoroutine(ParticalSystem.Instance.CallFinishPartical(box));
         yield return new WaitForSeconds(0.8f);
         ContractSystem.Instance.ContractFinish();
     }
@@ -69,7 +69,7 @@ public class FinishSystem : MonoSingleton<FinishSystem>
         {
             GameObject obj = ObjectPool.Instance.GetPooledObject(SpawnSystem.Instance.OPObjectCount + i);
             obj.transform.position = finishSpawnPos.transform.position;
-            obj.transform.localScale *= 1.3f;
+            obj.transform.localScale *= 1f;
             obj.GetComponent<Rigidbody>().useGravity = true;
             objects.Add(obj);
             box.transform.DOShakeScale(0.08f, 0.2f);
