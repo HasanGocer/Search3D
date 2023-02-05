@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39327633, g: 0.36369687, b: 0.24824156, a: 1}
+  m_IndirectSpecularColor: {r: 0.39327633, g: 0.36369687, b: 0.24824154, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6624,9 +6624,9 @@ MonoBehaviour:
   - {fileID: 801532457}
   - {fileID: 801532457}
   bossGO:
-  - {fileID: 770775935772636749, guid: 44f1079a19b984349a28271d98d3d0df, type: 3}
-  - {fileID: 1573175421048127562, guid: 8ff5ae8f5a8daee418c03f42c89cc720, type: 3}
-  - {fileID: 789248671208006424, guid: 3e203b9e4a7cad942a18513473f8c4af, type: 3}
+  - {fileID: 7057500054328124443, guid: 60ae7a59c63c2a64cb787b1a6aa1ecc9, type: 3}
+  - {fileID: 1422196326440794894, guid: 7d6ddcc20bd3eee4fa3185d66a7e04bb, type: 3}
+  - {fileID: 6074096041949852900, guid: 30e704c6f0447e5468f146cfb1ecf4ce, type: 3}
   finishPos: {fileID: 2015031118}
   finishMoveFactor: 8
   ObjectsGO: []
