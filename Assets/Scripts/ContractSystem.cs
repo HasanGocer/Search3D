@@ -77,7 +77,6 @@ public class ContractSystem : MonoSingleton<ContractSystem>
     }
     public void ContractFinish()
     {
-        ItemData.Field field = ItemData.Instance.field;
         Buttons.Instance.winPanel.SetActive(true);
 
         Vibration.Vibrate(30);

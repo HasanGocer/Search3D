@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39327633, g: 0.36369687, b: 0.24824156, a: 1}
+  m_IndirectSpecularColor: {r: 0.39327633, g: 0.36369687, b: 0.24824154, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5359,53 +5359,53 @@ MonoBehaviour:
   pools:
   - objectPrefab: {fileID: 6212779207743706348, guid: 71ac65a1535b94a43abf8cc3569a44ee,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
-    poolSize: 100
+    poolSize: 10
   - objectPrefab: {fileID: 1589019458639318, guid: fb2dbd343895b6c47888986bf91da33c,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 84029636620937701, guid: 1703c557422754b488d8c643727d23f5,
       type: 3}
-    poolSize: 500
+    poolSize: 100
   - objectPrefab: {fileID: 1670336210522388, guid: 19c065b476ca9a24e839e181a781c36c,
       type: 3}
     poolSize: 10
   - objectPrefab: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
-    poolSize: 100
+    poolSize: 50
   - objectPrefab: {fileID: 789248671208006424, guid: 953fb4c9347905346879a2d8ca7acd68,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 8550619513073654372, guid: 14f900e31a405994180b169e7ea9cc2d,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 4386143464429679442, guid: ec93abbe658121644b380a498f5ddcee,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 770775935772636749, guid: 973d74722cb55654198585f77a586c06,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 6299533109704995406, guid: ed72f8d63829436438ea857c6edd0ff7,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 1573175421048127562, guid: b801d32346bd75141aed54d7006b6886,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 155394314151495818, guid: 1910c78ef68b2d94fad25be7be616bb9,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 3477851093529860065, guid: ac155998bf8fb4045bbae61aee64cd3c,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 3195544616082858647, guid: ecb6b6b27890f8647beb5c14e8a51c4f,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 8133911471052325680, guid: d046c55f03d02144a8f4e311da5a4ae0,
       type: 3}
-    poolSize: 100
+    poolSize: 30
   - objectPrefab: {fileID: 6903721944858319649, guid: f38b92551b89cdb46adf1cb79128db40,
       type: 3}
-    poolSize: 100
+    poolSize: 30
 --- !u!114 &1386917217
 MonoBehaviour:
   m_ObjectHideFlags: 0
