@@ -17,7 +17,7 @@ public class PointText : MonoSingleton<PointText>
         StartCoroutine(CallPointMoneyText(Pos, count, isCorrect));
     }
 
-    public IEnumerator CallPointMoneyText(GameObject Pos, int count, bool isCorrect)
+    private IEnumerator CallPointMoneyText(GameObject Pos, int count, bool isCorrect)
     {
         GameObject obj = ObjectPool.Instance.GetPooledObject(_OPMoneyInt);
         if (isCorrect) obj.GetComponent<TMP_Text>().color = Color.green;

@@ -46,7 +46,7 @@ public class ObjectTouch : MonoBehaviour
             {
                 int monetCount = Random.Range(5, 10);
                 MoneySystem.Instance.MoneyTextRevork(-1 * monetCount);
-                StartCoroutine(PointText.Instance.CallPointMoneyText(gameObject, monetCount, false));
+                PointText.Instance.CallMoneyText(gameObject, monetCount, false);
                 isTrigger = true;
                 tempID = _IDCount;
                 _IDCount = -1;
@@ -55,6 +55,7 @@ public class ObjectTouch : MonoBehaviour
         }
         if (other.CompareTag("Finish"))
         {
+            isTrigger = true;
             ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + _IDCount, gameObject);
         }
     }
@@ -74,7 +75,7 @@ public class ObjectTouch : MonoBehaviour
         yield return null;
         while (!isTrigger && GameManager.Instance.gameStat == GameManager.GameStat.start)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * 18);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * 15);
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }

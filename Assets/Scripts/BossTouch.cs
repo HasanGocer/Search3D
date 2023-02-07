@@ -21,7 +21,7 @@ public class BossTouch : MonoBehaviour
             StartCoroutine(ParticalSystem.Instance.CallBossCoinPartical(gameObject));
             HitSystem.Instance.BackObject(other.gameObject);
             int monetCount = Random.Range(5, 10);
-            StartCoroutine(PointText.Instance.CallPointMoneyText(gameObject, monetCount, true));
+            PointText.Instance.CallMoneyText(gameObject, monetCount, true);
             GameManager.Instance.addedMoney += monetCount;
         }
         if (other.CompareTag("Finish"))
