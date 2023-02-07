@@ -75,8 +75,8 @@ public class ObjectTouch : MonoBehaviour
         yield return null;
         while (!isTrigger && GameManager.Instance.gameStat == GameManager.GameStat.start)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * 15);
-            yield return new WaitForSeconds(Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * 12);
+            yield return new WaitForSeconds(Time.deltaTime / 3);
         }
     }
 }
