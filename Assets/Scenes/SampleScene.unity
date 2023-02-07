@@ -884,7 +884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -415.3164}
+  m_AnchoredPosition: {x: 0, y: -329.13}
   m_SizeDelta: {x: 1080, y: 250.4829}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &278593132
@@ -5367,7 +5367,7 @@ MonoBehaviour:
     poolSize: 100
   - objectPrefab: {fileID: 84029636620937701, guid: 1703c557422754b488d8c643727d23f5,
       type: 3}
-    poolSize: 100
+    poolSize: 500
   - objectPrefab: {fileID: 1670336210522388, guid: 19c065b476ca9a24e839e181a781c36c,
       type: 3}
     poolSize: 10
@@ -7254,7 +7254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -415.3164}
+  m_AnchoredPosition: {x: 0, y: -329.13}
   m_SizeDelta: {x: 1080, y: 250.4829}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1849768121
@@ -16988,11 +16988,11 @@ RectTransform:
   m_Father: {fileID: 2142299948069456486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 628.4132}
-  m_SizeDelta: {x: 0, y: -1256.8267}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1080, y: 903.17334}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2902511747732538271
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ public class Buttons : MonoSingleton<Buttons>
             MoneySystem.Instance.MoneyTextRevork(GameManager.Instance.addedMoney);
         }
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     private IEnumerator WinPrizeButton()
     {
@@ -110,12 +110,12 @@ public class Buttons : MonoSingleton<Buttons>
             BarSystem.Instance.BarStopButton(GameManager.Instance.addedMoney);
         GameManager.Instance.SetLevel();
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     private IEnumerator FailButton()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     private void SettingButton()
     {

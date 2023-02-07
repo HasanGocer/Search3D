@@ -58,6 +58,7 @@ public class GameManager : MonoSingleton<GameManager>
             PlayerPrefs.SetInt("first", 1);
             FactorPlacementWrite(ItemData.Instance.factor);
         }
+        MoonSDK.TrackLevelEvents(MoonSDK.LevelEvents.Start, level);
     }
 
     public void FactorPlacementWrite(ItemData.Field factor)
