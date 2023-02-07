@@ -17,6 +17,11 @@ public class ContractSystem : MonoSingleton<ContractSystem>
 
     public GameObject taskAnim, bossAnim;
 
+    public void GlobalStart()
+    {
+        ContractSystem.Instance.FirstStart();
+    }
+
     public void FirstStart()
     {
         FocusContract = NewContract(GameManager.Instance.level, 2, ItemData.Instance.field.objectCount, ItemData.Instance.field.objectTypeCount);

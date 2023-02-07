@@ -28,6 +28,8 @@ public class Buttons : MonoSingleton<Buttons>
 
     public TMP_Text moneyText, levelText;
 
+    public GameObject loadingPanel;
+
     private void Start()
     {
         ButtonPlacement();
@@ -74,6 +76,15 @@ public class Buttons : MonoSingleton<Buttons>
         _winEmptyButton.onClick.AddListener(() => StartCoroutine(WinButton()));
         _failButton.onClick.AddListener(() => StartCoroutine(FailButton()));
         _startButton.onClick.AddListener(StartButton);
+    }
+
+    public IEnumerator FirstSpawn()
+    {
+        yield return new WaitForSeconds(5);
+        ContractSystem.Instance.GlobalStart();
+        _globalPanel.SetActive(true);
+        loadingPanel.SetActive(false);
+        _startPanel.SetActive(true);
     }
 
     private void StartButton()
