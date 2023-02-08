@@ -56,10 +56,17 @@ public class ObjectTouch : MonoBehaviour
         if (other.CompareTag("Finish"))
         {
             isTrigger = true;
-            ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + _IDCount, gameObject);
+            tempID = _IDCount;
+            _IDCount = -1;
+            IDBackPlacement();
+            ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + tempID, gameObject);
         }
     }
 
+    public void IDBackPlacement()
+    {
+        _IDCount = tempID;
+    }
     private IEnumerator FinishPositionMove(int ID)
     {
         transform.DOJump(SpawnSystem.Instance.finishPos.transform.position, 2, 2, 2f);
@@ -68,6 +75,7 @@ public class ObjectTouch : MonoBehaviour
     }
     private void BackObject(int ID)
     {
+        _IDCount = tempID;
         ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + ID, gameObject);
     }
     public IEnumerator Move(GameObject target)

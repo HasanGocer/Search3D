@@ -81,8 +81,11 @@ public class SpawnSystem : MonoSingleton<SpawnSystem>
             {
                 int count = Random.Range(0, ItemData.Instance.field.objectTypeCount);
                 GameObject obj = ObjectPool.Instance.GetPooledObject(OPObjectCount + count);
+                ObjectTouch objectTouch = obj.transform.GetComponent<ObjectTouch>();
+
                 obj.transform.position = _startPos[i].transform.position;
-                StartCoroutine(obj.transform.GetComponent<ObjectTouch>().Move(_finishPos[i]));
+                objectTouch.isTrigger = false;
+                StartCoroutine(objectTouch.Move(_finishPos[i]));
                 ObjectsGO.Add(obj);
 
                 yield return new WaitForSeconds(_spawnTime);

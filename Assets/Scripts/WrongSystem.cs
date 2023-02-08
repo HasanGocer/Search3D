@@ -21,6 +21,8 @@ public class WrongSystem : MonoSingleton<WrongSystem>
 
     public IEnumerator WrongCanvasMove(GameObject obj, int IDCount)
     {
+        ObjectTouch objectTouch = obj.GetComponent<ObjectTouch>();
+
         if (nowWrongCount >= maxWrongCount)
         {
             ContractUISystem.Instance.TaskPanel.SetActive(false);
@@ -41,6 +43,7 @@ public class WrongSystem : MonoSingleton<WrongSystem>
         tempImage.gameObject.SetActive(false);
         WrongImage[nowWrongCount - 1] = CallWrong(WrongImage[nowWrongCount - 1], wrongMark, redMat);
         yield return new WaitForSeconds(1.7f);
+        objectTouch.IDBackPlacement();
         ObjectPool.Instance.AddObject(SpawnSystem.Instance.OPObjectCount + IDCount, obj);
     }
 
